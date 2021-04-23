@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'StaticPagesController@home')->name('home');
 Route::get('/about', 'StaticPagesController@about')->name('about');
 Route::get('/help', 'StaticPagesController@help')->name('help');
-
+//注册新用户
 Route::get('signup', 'UsersController@create')->name('signup');
 Route::resource('users', 'UsersController');
+//用户登录和退出
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
